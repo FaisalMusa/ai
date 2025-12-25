@@ -1,0 +1,2455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faisal. | Strategic Web Developer</title>
+    <meta name="description" content="Professional Web Developer building fast, responsive websites for Nigerian businesses. Specializing in modern frontend development with strategic approach.">
+    <meta name="keywords" content="web developer, frontend developer, responsive websites, business websites, portfolio, Faisal Saleh Musa, Nigeria web developer">
+    <meta name="author" content="Faisal Saleh Musa">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* ===== CSS RESET & BASE ===== */
+        :root {
+            --color-primary: #0f3443;
+            --color-secondary: #119da4;
+            --color-accent: #ffc857;
+            --color-bg: #f8f9fa;
+            --color-text: #212529;
+            --color-light: #e9ecef;
+            --color-dark: #0a2936;
+            --color-darker: #061d26;
+            --font-main: 'Inter', sans-serif;
+            --transition: all 0.3s ease;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        h1, h2, h3, h4 {
+            line-height: 1.2;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: var(--color-primary);
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+            color: var(--color-primary);
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--color-accent);
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--color-primary);
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            color: var(--color-secondary);
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            border-radius: var(--border-radius);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-family: var(--font-main);
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--color-accent);
+            color: var(--color-primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-primary);
+            color: var(--color-accent);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--color-primary);
+            color: var(--color-bg);
+            transform: translateY(-3px);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            font-size: 1.1rem;
+            color: var(--color-secondary);
+        }
+
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(248, 249, 250, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(15, 52, 67, 0.05);
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo a {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .logo span {
+            color: var(--color-accent);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 1.8rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        nav a:hover {
+            color: var(--color-secondary);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-secondary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            cursor: pointer;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            padding-top: 8rem;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(248, 249, 250, 1) 0%, rgba(233, 236, 239, 0.7) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 650px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 1s ease 0.2s forwards;
+        }
+
+        .hero h1 {
+            margin-bottom: 1.2rem;
+        }
+
+        .hero h1 span {
+            color: var(--color-secondary);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--color-primary);
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-profile {
+            position: absolute;
+            right: 6%;
+            top: 22%;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--color-primary);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+            z-index: 1;
+        }
+
+        .hero-profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-bg-shape {
+            position: absolute;
+            bottom: -15%;
+            right: -5%;
+            width: 50%;
+            height: 70%;
+            background: linear-gradient(45deg, var(--color-secondary), var(--color-primary));
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            opacity: 0.03;
+            z-index: -1;
+        }
+
+       .expertise-tag {
+            display: inline-block;
+            background-color: rgba(255, 200, 87, 0.1);
+            color: var(--color-primary);
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 1rem 0 1.5rem;
+            border: 1px solid rgba(255, 200, 87, 0.3);
+        }
+
+        /* ===== THE PROBLEM SECTION ===== */
+        .problem {
+            background-color: var(--color-primary);
+            color: var(--color-bg);
+        }
+
+        .problem h2, .problem h3 {
+            color: var(--color-bg);
+        }
+
+        .problem h2::after {
+            background: var(--color-accent);
+        }
+
+        .problem-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .problem-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 2rem 1.8rem;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--color-accent);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .problem-card:hover {
+            transform: translateY(-8px);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .problem-card h3 {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--color-bg);
+            font-size: 1.3rem;
+        }
+
+        .problem-icon {
+            color: var(--color-accent);
+            font-size: 1.6rem;
+        }
+
+        /* ===== PROCESS SECTION (REDUCED SPACE) ===== */
+        .process {
+            padding: 4rem 0;
+        }
+
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 750px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 30px;
+            height: 100%;
+            width: 3px;
+            background: var(--color-light);
+            z-index: -1;
+        }
+
+        .process-step {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        .step-number {
+            background-color: var(--color-accent);
+            color: var(--color-primary);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex: 1;
+            padding-top: 0.3rem;
+        }
+
+        .step-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ===== SKILLS & TECHNOLOGIES SECTION ===== */
+        .skills {
+            background-color: var(--color-light);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .skills-category {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .skills-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .skills-category h3 {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 2px solid var(--color-accent);
+            font-size: 1.4rem;
+        }
+
+        .skills-category h3 i {
+            color: var(--color-secondary);
+            font-size: 1.5rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.7rem;
+            background-color: var(--color-bg);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .skill-item:hover {
+            background-color: var(--color-primary);
+            color: white;
+            transform: translateX(2px);
+        }
+
+        .skill-item:hover .skill-icon {
+            color: var(--color-accent);
+        }
+
+        .skill-icon {
+            color: var(--color-secondary);
+            font-size: 1.5rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        .skill-name {
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .skill-project-link {
+            font-size: 0.85rem;
+            color: var(--color-secondary);
+            margin-top: 0.3rem;
+            padding-left: 2.2rem;
+            font-style: italic;
+        }
+
+        /* ===== PROJECTS SHOWCASE ===== */
+        .projects-showcase {
+            padding: 4rem 0;
+            background-color: var(--color-darker);
+            position: relative;
+        }
+
+        .projects-showcase h2,
+        .projects-showcase .section-subtitle {
+            color: var(--color-bg);
+        }
+
+        .showcase-wrapper {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .showcase-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .showcase-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .showcase-slide {
+            flex: 0 0 100%;
+            min-width: 100%;
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            display: none;
+        }
+
+        .showcase-slide.active {
+            opacity: 1;
+            display: block;
+        }
+
+        .showcase-image {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .showcase-overlay {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+
+        .showcase-badge {
+            background-color: var(--color-accent);
+            color: var(--color-primary);
+            padding: 0.4rem 0.9rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            box-shadow: var(--shadow);
+        }
+
+        .showcase-content {
+            padding: 1.8rem;
+        }
+
+        .showcase-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .showcase-features {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+
+        .showcase-features span {
+            display: flex;
+            align-items: center;
+            background-color: var(--color-light);
+            padding: 0.4rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+        }
+
+        .showcase-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.2rem;
+        }
+
+        .showcase-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 45px;
+            height: 45px;
+            background-color: white;
+            border: none;
+            border-radius: 50%;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: var(--color-primary);
+            z-index: 10;
+            transition: var(--transition);
+        }
+
+        .showcase-nav:hover {
+            background-color: var(--color-accent);
+            color: var(--color-primary);
+        }
+
+        .showcase-nav-prev {
+            left: 15px;
+        }
+
+        .showcase-nav-next {
+            right: 15px;
+        }
+
+        .showcase-progress {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .showcase-dots {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .showcase-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .showcase-dot.active {
+            background-color: var(--color-accent);
+            transform: scale(1.2);
+        }
+
+        .manual-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .manual-btn {
+            padding: 0.5rem 1.5rem;
+            background-color: var(--color-accent);
+            color: var(--color-primary);
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .manual-btn:hover {
+            background-color: white;
+            color: var(--color-dark);
+            transform: translateY(-2px);
+        }
+
+        /* ===== CASE STUDY SECTION ===== */
+        .case-study {
+            background-color: var(--color-light);
+            padding: 3rem 0;
+        }
+
+        .case-study-filters {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .case-study-filter {
+            padding: 0.5rem 1.2rem;
+            background: white;
+            border: 1px solid var(--color-primary);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .case-study-filter.active,
+        .case-study-filter:hover {
+            background-color: var(--color-primary);
+            color: white;
+        }
+
+        .case-study-toggle {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .case-study-btn {
+            background-color: var(--color-primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .case-study-btn:hover {
+            background-color: var(--color-secondary);
+            transform: translateY(-2px);
+        }
+
+        .case-study-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .case-study-grid.expanded {
+            max-height: 5000px;
+        }
+
+        .case-study-project {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+            display: none;
+        }
+
+        .case-study-project.visible {
+            opacity: 1;
+            transform: translateY(0);
+            display: block;
+        }
+
+        .case-study-project:hover {
+            transform: translateY(-5px);
+        }
+
+        .case-study-header {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 1.5rem;
+            position: relative;
+            min-height: 120px;
+        }
+
+        .case-study-header h3 {
+            color: white;
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+
+        .case-study-type {
+            display: inline-block;
+            background-color: var(--color-accent);
+            color: var(--color-primary);
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .case-study-content {
+            padding: 1.5rem;
+        }
+
+        .case-study-section {
+            margin-bottom: 1.2rem;
+        }
+
+        .case-study-section h4 {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--color-light);
+            font-size: 1.1rem;
+        }
+
+        .case-study-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .case-study-list li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.4rem;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .case-study-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .case-study-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 1.2rem;
+        }
+
+        .case-study-tag {
+            background-color: var(--color-light);
+            color: var(--color-primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .case-study-actions {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1.2rem;
+        }
+
+        .case-study-actions .btn {
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+        }
+
+        .show-more-container {
+            text-align: center;
+            margin-top: 2rem;
+            display: none;
+        }
+
+        .show-more-container.visible {
+            display: block;
+        }
+
+        .show-more-btn {
+            background-color: var(--color-accent);
+            color: var(--color-primary);
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .show-more-btn:hover {
+            background-color: var(--color-primary);
+            color: var(--color-accent);
+            transform: translateY(-2px);
+        }
+
+        /* ===== REDESIGNED ABOUT & LET'S BUILD SECTION ===== */
+        .about-cta {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-dark) 100%);
+            color: var(--color-bg);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-cta h2, .about-cta p {
+            color: var(--color-bg);
+        }
+
+        .about-cta h2::after {
+            background: var(--color-accent);
+            left: 50%;
+        }
+
+        .about-cta-content {
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-card p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-card strong {
+            color: var(--color-accent);
+        }
+
+        .cta-highlight {
+            background-color: var(--color-accent);
+            color: var(--color-primary);
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--border-radius);
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-block;
+            margin: 1.5rem 0;
+            box-shadow: 0 5px 15px rgba(255, 200, 87, 0.3);
+        }
+
+        .contact-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-option {
+            background: white;
+            padding: 1.8rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .contact-option:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-accent);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-option i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .contact-option.email i { color: #EA4335; }
+        .contact-option.whatsapp i { color: #25D366; }
+
+        .contact-option h3 {
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-option p {
+            color: var(--color-text);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.7rem;
+            padding: 0.8rem 1.5rem;
+            width: 100%;
+            max-width: 200px;
+            font-weight: 600;
+        }
+
+        /* ===== SOCIAL MEDIA ICONS ===== */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            color: white;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .linkedin { background-color: #0077b5; }
+        .x-social { background-color: #000000; }
+        .github { background-color: #333; }
+        .facebook { background-color: #1877f2; }
+
+        /* ===== FLOATING WHATSAPP BUTTON ===== */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #25D366;
+            color: white;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            z-index: 999;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: var(--color-text);
+            color: var(--color-light);
+            padding: 1.5rem 0 1rem;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-logo span {
+            color: var(--color-accent);
+        }
+
+        .copyright {
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            color: #adb5bd;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1200px) {
+            .hero-profile {
+                width: 220px;
+                height: 220px;
+                right: 4%;
+                top: 20%;
+            }
+        }
+
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            .hero-profile {
+                position: relative;
+                width: 200px;
+                height: 200px;
+                margin: 0 auto 1.5rem;
+                right: auto;
+                top: auto;
+                order: -1;
+            }
+            .hero {
+                text-align: center;
+                flex-direction: column;
+                justify-content: center;
+                min-height: auto;
+                padding-top: 7rem;
+            }
+            .hero-content {
+                max-width: 100%;
+            }
+            .hero-btns {
+                justify-content: center;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-options {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto 2rem;
+            }
+            .case-study-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            section {
+                padding: 3.5rem 0;
+            }
+            .header-container {
+                padding: 0 1.5rem;
+            }
+            nav {
+                position: fixed;
+                top: 65px;
+                left: 0;
+                width: 100%;
+                background-color: var(--color-bg);
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+                padding: 1.5rem;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition);
+                pointer-events: none;
+            }
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: all;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 1.2rem;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            .hero-btns .btn {
+                width: 100%;
+                max-width: 280px;
+            }
+            .showcase-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            .showcase-nav-prev {
+                left: 10px;
+            }
+            .showcase-nav-next {
+                right: 10px;
+            }
+            .process-steps::before {
+                left: 25px;
+            }
+            .step-number {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+            }
+            .about-card {
+                padding: 1.8rem;
+            }
+            .whatsapp-float {
+                bottom: 1rem;
+                right: 1rem;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            .case-study-filters {
+                gap: 0.3rem;
+            }
+            .case-study-filter {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.7rem;
+            }
+            h3 {
+                font-size: 1.3rem;
+            }
+            .hero {
+                padding-top: 6rem;
+            }
+            .hero-profile {
+                width: 180px;
+                height: 180px;
+            }
+            .process-step {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            .step-number {
+                align-self: flex-start;
+            }
+            .social-links {
+                gap: 0.7rem;
+            }
+            .social-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+            .showcase-image {
+                height: 180px;
+            }
+            .showcase-nav-prev {
+                left: 5px;
+            }
+            .showcase-nav-next {
+                right: 5px;
+            }
+            .case-study-actions {
+                flex-direction: column;
+            }
+            .case-study-actions .btn {
+                width: 100%;
+            }
+            .case-study-filters {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== FLOATING WHATSAPP BUTTON ===== -->
+    <a href="https://wa.me/2347047766996?text=Hi%20Faisal,%20I%20saw%20your%20portfolio%20and%20I'm%20interested%20in%20your%20services" 
+       class="whatsapp-float" 
+       target="_blank" 
+       aria-label="Chat on WhatsApp">
+       <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- ===== HEADER ===== -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="#home">Faisal<span>.</span></a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">☰</button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#problem">The Problem</a></li>
+                    <li><a href="#process">My Process</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#showcase">Projects</a></li>
+                    <li><a href="#case-studies">Case Studies</a></li>
+                    <li><a href="#contact">Let's Build</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== HERO SECTION ===== -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-profile">
+                    <img src="user.jpg" alt="Faisal Saleh Musa - Professional Web Developer">
+                </div>
+                <div class="hero-content">
+                    <h1>Your Vision, <span>Engineered</span> for Impact.</h1>
+                    <p>I'm <strong>Faisal Saleh Musa</strong>, a Strategic Web Developer who transforms businesses' online presence. I build fast, responsive websites that attract quality leads, boost credibility, and accelerate growth.</p>
+                    <div class="expertise-tag">Business-Focused Solutions • Technical Excellence • Strategic Approach</div>
+                    <div class="hero-btns">
+                        <a href="#showcase" class="btn btn-primary">View My Projects</a>
+                        <a href="#problem" class="btn btn-secondary">The Problem I Solve</a>
+                    </div>
+                </div>
+                <div class="hero-bg-shape"></div>
+            </div>
+        </section>
+
+        <!-- ===== THE PROBLEM SECTION ===== -->
+        <section class="problem" id="problem">
+            <div class="container">
+                <h2>Does This Sound Familiar?</h2>
+                <p class="section-subtitle">Many businesses and professionals have a powerful story, but their website doesn't tell it. Here's what I often hear—and fix.</p>
+                <div class="problem-items">
+                    <div class="problem-card fade-in">
+                        <h3><span class="problem-icon">🌐</span> Invisible Online</h3>
+                        <p>"My business doesn't even show up when people search for my services. I'm missing out on customers every single day."</p>
+                    </div>
+                    <div class="problem-card fade-in">
+                        <h3><span class="problem-icon">😞</span> Looks Unprofessional</h3>
+                        <p>"My current site was built years ago (or by a friend). It looks dated and doesn't reflect the quality of my work or brand."</p>
+                    </div>
+                    <div class="problem-card fade-in">
+                        <h3><span class="problem-icon">📉</span> Doesn't Convert</h3>
+                        <p>"People visit, but they don't call, they don't book, they don't inquire. It's just a digital brochure, not a business tool."</p>
+                    </div>
+                    <div class="problem-card fade-in">
+                        <h3><span class="problem-icon">📱</span> Broken on Phones</h3>
+                        <p>"My website is impossible to use on a mobile device. I know over half of my potential visitors are using one."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== MY PROCESS SECTION ===== -->
+        <section class="process" id="process">
+            <div class="container">
+                <h2>My Structured Approach</h2>
+                <p class="section-subtitle">I don't just write code. I follow a clear process to ensure your project is on time, on budget, and solves the right problems.</p>
+                <div class="process-steps">
+                    <div class="process-step fade-in">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <h3>Discover & Strategy</h3>
+                            <p>We start with a conversation. I dive deep into your goals, audience, and challenges to define the core strategy for your site. What should it achieve? Who is it for?</p>
+                        </div>
+                    </div>
+                    <div class="process-step fade-in">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <h3>Planning & Wireframing</h3>
+                            <p>I create clear, functional layouts and wireframes focused on user experience and conversion goals. We'll map out the user journey before any visual design begins.</p>
+                        </div>
+                    </div>
+                    <div class="process-step fade-in">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <h3>Development & Build</h3>
+                            <p>Using the latest web technologies (HTML5, CSS3, JavaScript), I build a fast, secure, and responsive website. Every detail is crafted for performance and accessibility.</p>
+                        </div>
+                    </div>
+                    <div class="process-step fade-in">
+                        <div class="step-number">04</div>
+                        <div class="step-content">
+                            <h3>Launch & Optimize</h3>
+                            <p>I handle the launch smoothly. But my job isn't done—we'll monitor performance and make data-informed tweaks to ensure your site continues to work hard for you.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SKILLS & TECHNOLOGIES SECTION ===== -->
+        <section class="skills" id="skills">
+            <div class="container">
+                <h2>Skills & Technologies</h2>
+                <p class="section-subtitle">The tools and expertise I use to build effective, modern websites that drive business results.</p>
+                
+                <div class="skills-grid">
+                    <div class="skills-category fade-in">
+                        <h3><i class="fas fa-code"></i> Frontend Development</h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <span class="skill-icon">•</span>
+                                <span class="skill-name">HTML5 & Semantic Markup</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">•</span>
+                                <span class="skill-name">CSS3 & Modern Layouts (Flexbox/Grid)</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">•</span>
+                                <span class="skill-name">JavaScript (ES6+) & DOM Manipulation</span>
+                             </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">•</span>
+                                <span class="skill-name">Responsive & Mobile-First Design</span>
+                           </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">•</span>
+                                <span class="skill-name">Performance Optimization</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-category fade-in">
+                        <h3><i class="fas fa-tools"></i> Tools & Practices</h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <span class="skill-icon">•</span>
+                                <span class="skill-name">Version Control (Git & GitHub)</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">•</span>
+                                <span class="skill-name">Browser Developer Tools</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">•</span>
+                                <span class="skill-name">Clean Code & Best Practices</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">•</span>
+                                <span class="skill-name">Debugging & Problem Solving</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">•</span>
+                                <span class="skill-name">Cross-Browser Compatibility</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-category fade-in">
+                        <h3><i class="fas fa-rocket"></i> What I Deliver</h3>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <span class="skill-icon">•</span>
+                                <span class="skill-name">Fast, Optimized Websites</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">•</span>
+                                <span class="skill-name">Mobile-Friendly Experiences</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">•</span>
+                                <span class="skill-name">Conversion-Focused Design</span>
+                               </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">•</span>
+                                <span class="skill-name">Clean, Maintainable Code</span>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-icon">•</span>
+                                <span class="skill-name">Ongoing Support & Optimization</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PROJECTS SHOWCASE ===== -->
+<section class="projects-showcase" id="showcase">
+    <div class="container">
+        <h2>Project Showcase</h2>
+        <p class="section-subtitle">Quick overview of my recent work. Click arrows or buttons to navigate.</p>
+        
+        <div class="showcase-wrapper">
+            <div class="showcase-container">
+                <div class="showcase-track" id="showcaseTrack">
+                    <!-- Project 1: SpiceRoute Global -->
+                    <div class="showcase-slide active" data-slide="0">
+                        <div class="showcase-image" style="background-image: url('spice.png');">
+                            <div class="showcase-overlay">
+                                <span class="showcase-badge">B2B Wholesale</span>
+                            </div>
+                        </div>
+                        <div class="showcase-content">
+                            <h3 style="text-align: center;"> SpiceRoute Global 🌶️</h3>
+                            <p>Direct-from-farm premium spice marketplace connecting hotels/restaurants with global producers.</p>
+                            <div class="showcase-features">
+                                <span>Global</span>
+                                <span>B2B</span>
+                                <span>WhatsApp Order</span>
+                                <span>Journey Map</span>
+                                <span>Bulk Discounts</span>
+                                <span>Quality Guarantee</span>
+                            </div>
+                            <div class="showcase-actions">
+                                <a href="#case-study-1" class="btn btn-secondary view-details-btn">View Details</a>
+                                <a href="http://faisalmusa.github.io/spices" class="btn btn-primary live-preview-btn" target="_blank">Live Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2: Apex Vision -->
+                    <div class="showcase-slide" data-slide="1">
+                        <div class="showcase-image" style="background-image: url('optics.png');">
+                            <div class="showcase-overlay">
+                                <span class="showcase-badge">Medical</span>
+                            </div>
+                        </div>
+                        <div class="showcase-content">
+                            <h3 style="text-align: center;">Apex Vision 👁️</h3>
+                            <p>Advanced ophthalmology practice in Victoria Island, Lagos providing world-class eye care with precision technology.</p>
+                            <div class="showcase-features">
+                                <span>Medical</span>
+                                <span>Booking System</span>
+                                <span>Emergency Care</span>
+                                <span>Corporate Wellness</span>
+                                <span>Multi-doctor Practice</span>
+                                <span>Victoria Island</span>
+                            </div>
+                            <div class="showcase-actions">
+                                <a href="#case-study-2" class="btn btn-secondary view-details-btn">View Details</a>
+                                <a href="https://faisalmusa.github.io/eye-clinics" class="btn btn-primary live-preview-btn"> Live Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3: Nexis AI -->
+                    <div class="showcase-slide" data-slide="2">
+                        <div class="showcase-image" style="background-image: url('nexis.png');">
+                            <div class="showcase-overlay">
+                                <span class="showcase-badge">SaaS</span>
+                            </div>
+                        </div>
+                        <div class="showcase-content">
+                            <h3 style="text-align: center;">Nexis AI 🤖</h3>
+                            <p>Intelligent no-code automation platform for high-growth tech teams. Build complex workflows with AI-powered optimization.</p>
+                            <div class="showcase-features">
+                                <span>AI-Powered</span>
+                                <span>No-Code Builder</span>
+                                <span>Workflow Automation</span>
+                                <span>Real-time Analytics</span>
+                                <span>Machine Learning</span>
+                                <span>B2B SaaS</span>
+                            </div>
+                            <div class="showcase-actions">
+                                <a href="#case-study-3" class="btn btn-secondary view-details-btn">View Details</a>
+                                <a href="https://faisalmusa.github.io/nexis" class="btn btn-primary live-preview-btn"> Interactive Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 4: KAZ Portfolio -->
+                    <div class="showcase-slide" data-slide="3">
+                        <div class="showcase-image" style="background-image: url('graphic.jpg');">
+                            <div class="showcase-overlay">
+                                <span class="showcase-badge">Creative</span>
+                            </div>
+                        </div>
+                        <div class="showcase-content">
+                            <h3 style="text-align: center;">KAZ Portfolio 🎨</h3>
+                            <p>Statement portfolio positioning a visual alchemist as creative director-level talent, merging African aesthetics with global design thinking.</p>
+                            <div class="showcase-features">
+                                <span>Creative Director</span>
+                                <span>Brand Identity</span>
+                                <span>African Design</span>
+                                <span>Visual Storytelling</span>
+                                <span>Multi-disciplinary</span>
+                                <span>Luxury Positioning</span>
+                            </div>
+                            <div class="showcase-actions">
+                                <a href="#case-study-4" class="btn btn-secondary view-details-btn">View Details</a>
+                                <a href="https://faisalmusa.github.io/graphic-portfolio" class="btn btn-primary live-preview-btn">Live Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 5: Skin Beauty Care -->
+                    <div class="showcase-slide" data-slide="4">
+                        <div class="showcase-image" style="background-image: url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                            <div class="showcase-overlay">
+                                <span class="showcase-badge">Beauty & E-commerce</span>
+                            </div>
+                        </div>
+                        <div class="showcase-content">
+                            <h3 style="text-align: center;">Skin Beauty Care ✨</h3>
+                            <p>Luxury skincare clinic combining medical credibility with aesthetic excellence in Kaduna.</p>
+                            <div class="showcase-features">
+                                <span>Beauty</span>
+                                <span>E-commerce</span>
+                                <span>Booking</span>
+                                <span>Medical</span>
+                            </div>
+                            <div class="showcase-actions">
+                                <a href="#case-study-5" class="btn btn-secondary view-details-btn">View Details</a>
+                                <a href="https://faisalmusa.github.io/saloon" class="btn btn-primary live-preview-btn" target="_blank">Live Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 6: Ra'ees Properties -->
+                    <div class="showcase-slide" data-slide="5">
+                        <div class="showcase-image" style="background-image: url('realestate.png');">
+                            <div class="showcase-overlay">
+                                <span class="showcase-badge">Real Estate</span>
+                            </div>
+                        </div>
+                        <div class="showcase-content">
+                            <h3 style="text-align: center;">Ra'ees Properties 🏡</h3>
+                            <p>Complete property solutions platform for A real estate agency in Maitama, Abuja needed to showcase a large, diverse inventory (houses, land, commercial) and generate high-intent leads (buyers, sellers, renters)</p>
+                            <div class="showcase-features">
+                                <span>Real Estate</span>
+                                <span>Mortgage Calc</span>
+                                <span>Filtering</span>
+                                <span>Localized</span>
+                            </div>
+                            <div class="showcase-actions">
+                                <a href="#case-study-6" class="btn btn-secondary view-details-btn">View Details</a>
+                                <a href="https://faisalmusa.github.io/real-estate" class="btn btn-primary live-preview-btn" target="_blank">Live Demo</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation Arrows -->
+                <button class="showcase-nav showcase-nav-prev" aria-label="Previous project">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="showcase-nav showcase-nav-next" aria-label="Next project">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <!-- Progress/Dots & Manual Controls -->
+            <div class="showcase-progress">
+                <div class="showcase-dots">
+                    <span class="showcase-dot active" data-slide="0"></span>
+                    <span class="showcase-dot" data-slide="1"></span>
+                    <span class="showcase-dot" data-slide="2"></span>
+                    <span class="showcase-dot" data-slide="3"></span>
+                    <span class="showcase-dot" data-slide="4"></span>
+                    <span class="showcase-dot" data-slide="5"></span>
+                </div>
+                
+                <div class="manual-controls">
+                    <button class="manual-btn" id="prevManual">Previous</button>
+                    <button class="manual-btn" id="nextManual">Next</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- ===== CASE STUDIES SECTION ===== -->
+        <section class="case-study" id="case-studies">
+            <div class="container">
+                <h2>Detailed Case Studies</h2>
+                <p class="section-subtitle">In-depth look at strategic projects showcasing problem-solving approach</p>
+                
+                <!-- Case Study Filters -->
+                <div class="case-study-filters">
+                    <button class="case-study-filter active" data-filter="all">All Projects</button>
+                    <button class="case-study-filter" data-filter="b2b">B2B/E-commerce</button>
+                    <button class="case-study-filter" data-filter="medical">Medical/Service</button>
+                    <button class="case-study-filter" data-filter="creative">Creative</button>
+                    <button class="case-study-filter" data-filter="saas">SaaS/Tech</button>
+                </div>
+                
+                <div class="case-study-toggle">
+                    <button class="case-study-btn" id="caseStudyToggle">
+                        <i class="fas fa-chevron-down"></i> View Case Studies
+                    </button>
+                </div>
+                
+                <div class="case-study-grid" id="caseStudyGrid">
+                    <!-- Case Study 1: SpiceRoute Global -->
+                    <div class="case-study-project visible" id="case-study-1" data-category="b2b">
+                        <div class="case-study-header">
+                            <span class="case-study-type">B2B Wholesale Platform</span>
+                            <h3>SpiceRoute Global 🌶️</h3>
+                        </div>
+                        
+                        <div class="case-study-content">
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-bullseye"></i> Business Problem</h4>
+                                <p>Hotels and restaurants needed a reliable, transparent source for bulk spices, but existing B2B platforms were complex and lacked quality assurance. How to make bulk procurement simple while maintaining trust?</p>
+                            </div>
+                            
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-cogs"></i> Strategic Solution</h4>
+                                <p>A B2B platform that combines e-commerce simplicity with wholesale transparency. The interactive spice journey map builds trust by showing origins, while WhatsApp ordering reduces friction for bulk buyers.</p>
+                            </div>
+                            
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-star"></i> Key Features</h4>
+                                <ul class="case-study-list">
+                                    <li>Interactive global spice map showing sourcing origins (India, Madagascar, Sri Lanka, Mexico, Mediterranean, Vietnam)</li>
+                                    <li>Bulk discount system with floating button and timed discount modal (code: chilli20)</li>
+                                    <li>Direct WhatsApp ordering eliminating cart abandonment</li>
+                                    <li>Commercial pricing tiers for different business sizes</li>
+                                    <li>Quality guarantee badges and farm-to-table timeline</li>
+                                    <li>Premium dark theme with custom scroll animations</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-chart-line"></i> Business Impact</h4>
+                                <p>Projects 20% increase in wholesale inquiries by reducing procurement friction. The transparent sourcing builds premium brand positioning in the competitive B2B food supply market.</p>
+                            </div>
+                            
+                            <div class="case-study-tech">
+                                <span class="case-study-tag">HTML5</span>
+                                <span class="case-study-tag">CSS3</span>
+                                <span class="case-study-tag">JavaScript</span>
+                                <span class="case-study-tag">WhatsApp API</span>
+                                <span class="case-study-tag">Interactive Maps</span>
+                                <span class="case-study-tag">LocalStorage</span>
+                                <span class="case-study-tag">Responsive Design</span>
+                            </div>
+                            
+                            <div class="case-study-actions">
+                                <a href="http://faisalmusa.github.io/spices" class="btn btn-secondary">View Project</a>
+                             </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Case Study 2: Apex Vision -->
+                    <div class="case-study-project visible" id="case-study-2" data-category="medical">
+                        <div class="case-study-header">
+                            <span class="case-study-type">Medical Clinic Website</span>
+                            <h3>Apex Vision 👁️</h3>
+                        </div>
+                        
+                        <div class="case-study-content">
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-bullseye"></i> Business Problem</h4>
+                                <p>A premium ophthalmology clinic relocated to Victoria Island, Lagos needed to establish elite positioning in a competitive urban market while maintaining trust and converting high-value patients through digital booking.</p>
+                            </div>
+                            
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-cogs"></i> Strategic Solution</h4>
+                                <p>A sophisticated medical website combining authority-building elements with conversion optimization. Features emergency call functionality, multi-step booking modal, corporate wellness programs, and showcases fellowship-trained specialists to attract discerning Lagos clientele.</p>
+                            </div>
+                            
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-star"></i> Key Features</h4>
+                                <ul class="case-study-list">
+                                    <li>Emergency floating button with pulsing animation for urgent care</li>
+                                    <li>Advanced booking modal with two-panel design (form + clinic info)</li>
+                                    <li>Corporate wellness programs tiered for executives/departments/partnerships</li>
+                                    <li>Multi-specialist team display with 4 fellowship-trained doctors</li>
+                                    <li>Service categorization (6 comprehensive eye care services with badges)</li>
+                                    <li>Victoria Island location optimization with accessibility features</li>
+                                    <li>Patient success stats (10,000+ treated, 98% success rate, 15+ years experience)</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-chart-line"></i> Business Impact</h4>
+                                <p>Establishes premium positioning in Victoria Island's competitive healthcare market. Projects increased corporate partnerships and higher-value patient bookings through sophisticated digital presence and streamlined appointment system.</p>
+                            </div>
+                            
+                            <div class="case-study-tech">
+                                <span class="case-study-tag">HTML5</span>
+                                <span class="case-study-tag">CSS3 (Tailwind CSS)</span>
+                                <span class="case-study-tag">JavaScript</span>
+                                <span class="case-study-tag">Form Validation</span>
+                                <span class="case-study-tag">Mobile Optimization</span>
+                                <span class="case-study-tag">Corporate UX</span>
+                            </div>
+                            
+                            <div class="case-study-actions">
+                                <a href="https://faisalmusa.github.io/eye-clinics" class="btn btn-secondary">View Project</a>
+                              </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Case Study 3: Nexis AI -->
+                    <div class="case-study-project" id="case-study-3" data-category="saas">
+                        <div class="case-study-header">
+                            <span class="case-study-type">SaaS Automation Platform</span>
+                            <h3>Nexis AI 🤖</h3>
+                        </div>
+                        
+                        <div class="case-study-content">
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-bullseye"></i> Business Problem</h4>
+                                <p>Tech teams were wasting valuable engineering hours on repetitive tasks and fragile custom scripts. Existing automation tools were either too simplistic for complex workflows or required extensive coding expertise, creating bottlenecks in development pipelines.</p>
+                            </div>
+                            
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-cogs"></i> Strategic Solution</h4>
+                                <p>An intelligent no-code automation platform centered around an interactive drag-and-drop workflow builder. The AI chat widget acts as a 24/7 sales assistant, while the interactive demo lets users experience the core value proposition immediately without technical jargon.</p>
+                            </div>
+                            
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-star"></i> Key Features</h4>
+                                <ul class="case-study-list">
+                                    <li>Interactive Workflow Builder with draggable nodes and visual SVG connections</li>
+                                    <li>AI Assistant Chat Widget with quick-question buttons (Features, Pricing, Demo)</li>
+                                    <li>Real-time Statistics Counter animating business metrics (5,000+ users, 150k tasks)</li>
+                                    <li>Three Core Feature Set: No-Code Workflows, Machine Learning Core, Blazing Fast Deployment</li>
+                                    <li>B2B Testimonials from CTOs and VPs establishing enterprise credibility</li>
+                                    <li>Lead Capture Form with company size segmentation</li>
+                                    <li>Dark Theme UI with gradient accents for modern tech aesthetic</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-chart-line"></i> Business Impact</h4>
+                                <p>Projects significant reduction in manual task time (80% according to testimonials) and shorter sales cycles as prospects self-educate through interactive tools. Positions the product as enterprise-ready while remaining accessible to non-technical users.</p>
+                            </div>
+                            
+                            <div class="case-study-tech">
+                                <span class="case-study-tag">HTML5</span>
+                                <span class="case-study-tag">CSS3 (Tailwind CSS)</span>
+                                <span class="case-study-tag">JavaScript</span>
+                                <span class="case-study-tag">SVG Animations</span>
+                                <span class="case-study-tag">Drag & Drop API</span>
+                                <span class="case-study-tag">Intersection Observer</span>
+                                <span class="case-study-tag">SaaS UX</span>
+                            </div>
+                            
+                            <div class="case-study-actions">
+                                <a href="https://faisalmusa.github.io/nexis" class="btn btn-secondary">View Project</a>
+                             </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Case Study 4: KAZ Portfolio -->
+                    <div class="case-study-project" id="case-study-4" data-category="creative">
+                        <div class="case-study-header">
+                            <span class="case-study-type">Creative Designer Portfolio</span>
+                            <h3>KAZ Portfolio 🎨</h3>
+                        </div>
+                        
+                        <div class="case-study-content">
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-bullseye"></i> Business Problem</h4>
+                                <p>An elite visual designer needed a portfolio that doesn't just showcase work, but embodies their unique "Visual Alchemist" brand personality to attract premium clients and stand out in a saturated creative market.</p>
+                            </div>
+                            
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-cogs"></i> Strategic Solution</h4>
+                                <p>A bold, immersive website that is itself a piece of design art. The entire experience—from animated background shapes to "Brand Sorcery" service names—reinforces a narrative of transformative creativity and positions the designer as a creative director, not just a service provider.</p>
+                            </div>
+                            
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-star"></i> Key Features</h4>
+                                <ul class="case-study-list">
+                                    <li>Animated Background Shapes with floating geometric elements</li>
+                                    <li>Interactive Card Grid in hero section demonstrating design thinking</li>
+                                    <li>Clever Portfolio "Showcase" Grid with 4 featured projects</li>
+                                    <li>Creative Nomenclature: "Visual Alchemist", "Brand Sorcery", "Digital Architecture", "Conjure With Me"</li>
+                                    <li>Process Gallery showing behind-the-scenes work</li>
+                                    <li>Studio Section ("The Laboratory") establishing physical presence</li>
+                                    <li>Magical Form Submission with animated confirmation effects</li>
+                                    <li>Vibrant Color Palette (magenta, teal, electric blue, neon yellow)</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-chart-line"></i> Business Impact</h4>
+                                <p>Positions the designer as top-tier, innovative creative commanding premium rates. The engaging, immersive experience increases time-on-site and leads to more qualified, high-budget project inquiries from luxury brands and tech startups seeking distinctive visual identity.</p>
+                            </div>
+                            
+                            <div class="case-study-tech">
+                                <span class="case-study-tag">HTML5</span>
+                                <span class="case-study-tag">CSS3</span>
+                                <span class="case-study-tag">JavaScript</span>
+                                <span class="case-study-tag">CSS Animations</span>
+                                <span class="case-study-tag">CSS Grid</span>
+                                <span class="case-study-tag">Creative UX</span>
+                                <span class="case-study-tag">Brand Storytelling</span>
+                            </div>
+                            
+                            <div class="case-study-actions">
+                                <a href="https://faisalmusa.github.io/graphic-portfolio" class="btn btn-secondary">View Project</a>
+                               </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Case Study 5: Skin Beauty Care  -->
+                    <div class="case-study-project" id="case-study-5" data-category="medical">
+                        <div class="case-study-header">
+                            <span class="case-study-type">Beauty Clinic & E-commerce</span>
+                            <h3>Skin Beauty Care ✨</h3>
+                        </div>
+                        
+                        <div class="case-study-content">
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-bullseye"></i> Business Problem</h4>
+                                <p>A high-end skincare clinic selling both services (facials) and products needed a site that blends e-commerce functionality with service booking, while maintaining a luxurious, trustworthy brand image for a discerning Kaduna clientele.</p>
+                            </div>
+                            
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-cogs"></i> Strategic Solution</h4>
+                                <p>A conversion-optimized, mobile-first website that seamlessly merges an online store with a service menu. Clear funnels for both "Book Consultation" and "Shop Products" with sensory marketing through high-quality imagery.</p>
+                            </div>
+                            
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-star"></i> Key Features</h4>
+                                <ul class="case-study-list">
+                                    <li>Dual conversion paths for services booking and product sales</li>
+                                    <li>"Add to Cart" functionality with feedback for e-commerce</li>
+                                    <li>Color-coded sections (pink, lavender, blue) creating sensory experience</li>
+                                    <li>Timed discount modal with localStorage remembering user dismissal</li>
+                                    <li>FAQ accordions reducing pre-purchase anxiety</li>
+                                    <li>Client transformation gallery building social proof</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-chart-line"></i> Business Impact</h4>
+                                <p>Projects increased online product sales alongside booked appointments. The site acts as a 24/7 storefront and booking agent, reducing administrative overhead while capturing both local and online shoppers.</p>
+                            </div>
+                            
+                            <div class="case-study-tech">
+                                <span class="case-study-tag">HTML5</span>
+                                <span class="case-study-tag">CSS3</span>
+                                <span class="case-study-tag">JavaScript</span>
+                                <span class="case-study-tag">E-commerce UX</span>
+                                <span class="case-study-tag">Form Validation</span>
+                                <span class="case-study-tag">LocalStorage</span>
+                            </div>
+                            
+                            <div class="case-study-actions">
+                                <a href="https://faisalmusa.github.io/saloon" class="btn btn-secondary">View Project</a>
+                                </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Case Study 6: Ra'ees Properties (Maintained as is) -->
+                    <div class="case-study-project" id="case-study-6" data-category="b2b">
+                        <div class="case-study-header">
+                            <span class="case-study-type">Real Estate Platform</span>
+                            <h3>Ra'ees Properties 🏡</h3>
+                        </div>
+                        
+                        <div class="case-study-content">
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-bullseye"></i> Business Problem</h4>
+                                <p>A real estate agency in Maitama, Abuja needed to showcase a large, diverse inventory (houses, land, commercial) and generate high-intent leads (buyers, sellers, renters) in a competitive, high-value property market.</p>
+                            </div>
+                            
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-cogs"></i> Strategic Solution</h4>
+                                <p>A feature-rich property portal designed for exploration and lead capture. The interactive mortgage calculator helps serious buyers evaluate affordability, keeping them engaged and moving down the sales funnel.</p>
+                            </div>
+                            
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-star"></i> Key Features</h4>
+                                <ul class="case-study-list">
+                                    <li>Advanced property filtering by type, price, and location</li>
+                                    <li>Interactive mortgage calculator with real-time financial formulas</li>
+                                    <li>Property cards with status badges (For Sale, For Rent, Featured)</li>
+                                    <li>Agent profiles with direct contact options building relationships</li>
+                                    <li>Virtual tour integration for remote property viewing</li>
+                                    <li>Neighborhood guides with local amenities for context</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="case-study-section">
+                                <h4><i class="fas fa-chart-line"></i> Business Impact</h4>
+                                <p>Projects higher quality leads as visitors use filters and tools to self-qualify. The mortgage calculator positions the agency as a helpful advisor (not just a listing service), increasing trust and conversion rates.</p>
+                            </div>
+                            
+                            <div class="case-study-tech">
+                                <span class="case-study-tag">HTML5</span>
+                                <span class="case-study-tag">CSS3</span>
+                                <span class="case-study-tag">JavaScript</span>
+                                <span class="case-study-tag">Interactive Forms</span>
+                                <span class="case-study-tag">Financial Calculations</span>
+                                <span class="case-study-tag">Filtering Systems</span>
+                            </div>
+                            
+                            <div class="case-study-actions">
+                                <a href="https://faisalmusa.github.io/real-estate" class="btn btn-secondary">View Project</a>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Show More Button -->
+                <div class="show-more-container" id="showMoreContainer">
+                    <button class="show-more-btn" id="showMoreBtn">
+                        <i class="fas fa-plus"></i> Show More Case Studies
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== REDESIGNED ABOUT & LET'S BUILD SECTION ===== -->
+        <section class="about-cta" id="contact">
+            <div class="container">
+                <h2>About Me & Let's Build</h2>
+                <p class="section-subtitle">Let's turn your vision into a powerful online presence</p>
+                
+                <div class="about-card fade-in">
+                    <p><strong>I'm Faisal Saleh Musa</strong>, a Strategic Web Developer who builds fast, effective websites that drive business growth. I combine technical expertise with strategic thinking to create websites that convert visitors into customers.</p>
+                    <p>Your website should be your most reliable business partner. It works 24/7 to represent your brand, capture leads, and tell your story. Let's build something that truly works for you.</p>
+                    <p><strong>My expertise spans:</strong> B2B platforms (SpiceRoute Global), medical services (Apex Vision), SaaS products (Nexis AI), creative branding (KAZ Portfolio), e-commerce (Skin Beauty Care), and real estate (Ra'ees Properties).</p>
+                </div>
+                
+                <div class="cta-highlight fade-in">
+                    Ready to transform your online presence?
+                </div>
+                
+                <div class="contact-options fade-in">
+                    <div class="contact-option email">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>For detailed proposals and project discussions</p>
+                        <a href="mailto:faisaldev500@gmail.com" class="btn contact-btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Send Email
+                        </a>
+                    </div>
+                    
+                    <div class="contact-option whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                        <h3>WhatsApp</h3>
+                        <p>For casual chat and quick project estimates</p>
+                        <a href="https://wa.me/2347047766996" target="_blank" class="btn contact-btn btn-primary">
+                            <i class="fab fa-whatsapp"></i> Chat Now
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Social Media Icons -->
+                <div class="social-links fade-in">
+                    <a href="https://linkedin.com/in/faisal-musa-saleh" target="_blank" class="social-icon linkedin" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                     <a href="https://www.facebook.com/profile.php?id=100087171707661" target="_blank" class="social-icon facebook" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://x.com/faisalsaleh" target="_blank" class="social-icon x-social" aria-label="X (formerly Twitter)">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                    <a href="https://github.com/faisalsaleh" target="_blank" class="social-icon github" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                   
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                Faisal<span>.</span>
+            </div>
+            <div class="copyright">
+                <p>&copy; <span id="currentYear"></span> Faisal Saleh Musa | Strategic Web Developer. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        // ===== PORTFOLIO SCRIPT =====
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.textContent = mainNav.classList.contains('active') ? '✕' : '☰';
+        });
+
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainNav.classList.remove('active');
+                mobileMenuBtn.textContent = '☰';
+            });
+        });
+
+        // Scroll Animation for Fade-In Elements
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const appearOnScroll = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, entry.target.dataset.delay || 0);
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        fadeElements.forEach(el => appearOnScroll.observe(el));
+
+        // Projects Slideshow
+        class ProjectSlideshow {
+            constructor() {
+                this.track = document.getElementById('showcaseTrack');
+                this.slides = document.querySelectorAll('.showcase-slide');
+                this.dots = document.querySelectorAll('.showcase-dot');
+                this.prevBtn = document.querySelector('.showcase-nav-prev');
+                this.nextBtn = document.querySelector('.showcase-nav-next');
+                this.prevManualBtn = document.getElementById('prevManual');
+                this.nextManualBtn = document.getElementById('nextManual');
+                
+                this.currentSlide = 0;
+                this.totalSlides = this.slides.length;
+                this.interval = null;
+                this.intervalTime = 5000;
+                this.isAnimating = false;
+                
+                this.init();
+            }
+            
+            init() {
+                this.showSlide(this.currentSlide);
+                this.startAutoSlide();
+                
+                this.prevBtn.addEventListener('click', () => this.prevSlide());
+                this.nextBtn.addEventListener('click', () => this.nextSlide());
+                this.prevManualBtn.addEventListener('click', () => this.prevSlide());
+                this.nextManualBtn.addEventListener('click', () => this.nextSlide());
+                
+                this.dots.forEach(dot => {
+                    dot.addEventListener('click', (e) => {
+                        const slideIndex = parseInt(e.target.dataset.slide);
+                        this.goToSlide(slideIndex);
+                    });
+                });
+                
+                this.track.addEventListener('mouseenter', () => this.stopAutoSlide());
+                this.track.addEventListener('mouseleave', () => this.startAutoSlide());
+                
+                this.addSwipeSupport();
+            }
+            
+            showSlide(index) {
+                if (this.isAnimating) return;
+                this.isAnimating = true;
+                
+                this.slides.forEach(slide => slide.classList.remove('active'));
+                this.slides[index].classList.add('active');
+                
+                this.dots.forEach(dot => dot.classList.remove('active'));
+                this.dots[index].classList.add('active');
+                
+                this.currentSlide = index;
+                
+                setTimeout(() => {
+                    this.isAnimating = false;
+                }, 500);
+            }
+            
+            nextSlide() {
+                if (this.isAnimating) return;
+                let nextIndex = this.currentSlide + 1;
+                if (nextIndex >= this.totalSlides) nextIndex = 0;
+                this.showSlide(nextIndex);
+                this.resetAutoSlide();
+            }
+            
+            prevSlide() {
+                if (this.isAnimating) return;
+                let prevIndex = this.currentSlide - 1;
+                if (prevIndex < 0) prevIndex = this.totalSlides - 1;
+                this.showSlide(prevIndex);
+                this.resetAutoSlide();
+            }
+            
+            goToSlide(index) {
+                if (this.isAnimating || index < 0 || index >= this.totalSlides) return;
+                this.showSlide(index);
+                this.resetAutoSlide();
+            }
+            
+            startAutoSlide() {
+                this.stopAutoSlide();
+                this.interval = setInterval(() => this.nextSlide(), this.intervalTime);
+            }
+            
+            stopAutoSlide() {
+                if (this.interval) {
+                    clearInterval(this.interval);
+                    this.interval = null;
+                }
+            }
+            
+            resetAutoSlide() {
+                this.stopAutoSlide();
+                this.startAutoSlide();
+            }
+            
+            addSwipeSupport() {
+                let touchStartX = 0;
+                let touchEndX = 0;
+                
+                this.track.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                    this.stopAutoSlide();
+                }, { passive: true });
+                
+                this.track.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    this.handleSwipe(touchStartX, touchEndX);
+                    this.startAutoSlide();
+                }, { passive: true });
+            }
+            
+            handleSwipe(startX, endX) {
+                const swipeThreshold = 50;
+                const diff = startX - endX;
+                
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        this.nextSlide();
+                    } else {
+                        this.prevSlide();
+                    }
+                }
+            }
+        }
+
+        // Initialize slideshow
+        document.addEventListener('DOMContentLoaded', () => {
+            new ProjectSlideshow();
+        });
+
+        // Case Studies System
+        const caseStudyToggle = document.getElementById('caseStudyToggle');
+        const caseStudyGrid = document.getElementById('caseStudyGrid');
+        const showMoreContainer = document.getElementById('showMoreContainer');
+        const showMoreBtn = document.getElementById('showMoreBtn');
+        const caseStudyFilters = document.querySelectorAll('.case-study-filter');
+        
+        let caseStudiesExpanded = false;
+        let moreCaseStudiesVisible = false;
+        let activeFilter = 'all';
+
+        // Filter Case Studies
+        caseStudyFilters.forEach(filter => {
+            filter.addEventListener('click', () => {
+                const filterValue = filter.dataset.filter;
+                
+                // Update active filter
+                caseStudyFilters.forEach(f => f.classList.remove('active'));
+                filter.classList.add('active');
+                activeFilter = filterValue;
+                
+                // Filter projects
+                const allProjects = document.querySelectorAll('.case-study-project');
+                allProjects.forEach(project => {
+                    if (filterValue === 'all' || project.dataset.category === filterValue) {
+                        project.style.display = 'block';
+                        setTimeout(() => project.classList.add('visible'), 10);
+                    } else {
+                        project.classList.remove('visible');
+                        setTimeout(() => project.style.display = 'none', 300);
+                    }
+                });
+            });
+        });
+
+        // Toggle Case Studies Visibility
+        caseStudyToggle.addEventListener('click', () => {
+            if (!caseStudiesExpanded) {
+                // Show case studies
+                caseStudyGrid.classList.add('expanded');
+                caseStudyToggle.innerHTML = '<i class="fas fa-chevron-up"></i> Hide Case Studies';
+                caseStudiesExpanded = true;
+                
+                // Show first two case studies
+                setTimeout(() => {
+                    document.getElementById('case-study-1').style.display = 'block';
+                    document.getElementById('case-study-2').style.display = 'block';
+                    
+                    setTimeout(() => {
+                        document.getElementById('case-study-1').classList.add('visible');
+                        document.getElementById('case-study-2').classList.add('visible');
+                    }, 100);
+                    
+                    // Show "Show More" button
+                    showMoreContainer.classList.add('visible');
+                }, 300);
+            } else {
+                // Hide all case studies
+                caseStudyGrid.classList.remove('expanded');
+                caseStudyToggle.innerHTML = '<i class="fas fa-chevron-down"></i> View Case Studies';
+                caseStudiesExpanded = false;
+                moreCaseStudiesVisible = false;
+                
+                // Hide all projects
+                const allProjects = document.querySelectorAll('.case-study-project');
+                allProjects.forEach(project => {
+                    project.classList.remove('visible');
+                    setTimeout(() => project.style.display = 'none', 300);
+                });
+                
+                // Hide "Show More" button
+                showMoreContainer.classList.remove('visible');
+                showMoreBtn.innerHTML = '<i class="fas fa-plus"></i> Show More Case Studies';
+            }
+        });
+
+        // Show More Case Studies
+        showMoreBtn.addEventListener('click', () => {
+            if (!moreCaseStudiesVisible) {
+                // Show all case studies based on active filter
+                const allProjects = document.querySelectorAll('.case-study-project');
+                allProjects.forEach(project => {
+                    if (activeFilter === 'all' || project.dataset.category === activeFilter) {
+                        project.style.display = 'block';
+                        setTimeout(() => project.classList.add('visible'), 10);
+                    }
+                });
+                
+                showMoreBtn.innerHTML = '<i class="fas fa-minus"></i> Show Less Case Studies';
+                moreCaseStudiesVisible = true;
+            } else {
+                // Hide projects 3-6
+                for (let i = 3; i <= 6; i++) {
+                    const project = document.getElementById(`case-study-${i}`);
+                    if (project) {
+                        project.classList.remove('visible');
+                        setTimeout(() => {
+                            if (activeFilter === 'all' || project.dataset.category === activeFilter) {
+                                project.style.display = 'none';
+                            }
+                        }, 300);
+                    }
+                }
+                
+                showMoreBtn.innerHTML = '<i class="fas fa-plus"></i> Show More Case Studies';
+                moreCaseStudiesVisible = false;
+            }
+        });
+
+        // Smooth scroll for "View Details" buttons
+        document.querySelectorAll('.view-details-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Expand case studies if not already expanded
+                    if (!caseStudiesExpanded) {
+                        caseStudyToggle.click();
+                    }
+                    
+                    // Wait for expansion animation, then scroll to target
+                    setTimeout(() => {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Highlight the target case study
+                        targetElement.style.boxShadow = '0 0 0 3px var(--color-accent)';
+                        setTimeout(() => {
+                            targetElement.style.boxShadow = '';
+                        }, 2000);
+                    }, 500);
+                }
+            });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.style.padding = '0.7rem 0';
+                header.style.boxShadow = '0 5px 20px rgba(15, 52, 67, 0.1)';
+            } else {
+                header.style.padding = '1rem 0';
+                header.style.boxShadow = '0 2px 5px rgba(15, 52, 67, 0.05)';
+            }
+        });
+
+        // Initial hero animation
+        window.addEventListener('load', () => {
+            const heroContent = document.querySelector('.hero-content');
+            heroContent.style.animation = 'fadeUp 1s ease 0.2s forwards';
+        });
+    </script>
+</body>
+</html>
